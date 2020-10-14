@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        Publication List
+        <a href="{% url 'publication-create' %}"class="btn btn-success float-right">Create New</a>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <tr>
+                <th>S/L</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            {% for publication in publications %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td><a href="{% url 'publication-detail' publication.pk %}"> {{publication.name}}</a></td>
+                <td>
+                    <a href="{% url 'publication-edit' publication.pk %}" class="btn btn-primary">Edit</a>
+                    <a href="{% url 'publication-delete' publication.pk %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+</div>
+
+
+{% endblock %}

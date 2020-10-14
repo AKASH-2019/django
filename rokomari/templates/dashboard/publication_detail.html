@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header">Publication Detail</div>
+    <div class="card-body">
+
+        <h1>Name: {{publication.name}}</h1>
+        <img src="{% if publication.photo %} {{ publication.photo.url }} {% endif %}" alt="", class="card-img-top", width="100", height="450">
+
+    </div>
+
+</div>
+
+{% endblock %}
